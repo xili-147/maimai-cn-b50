@@ -79,7 +79,7 @@ keychip 的完整形式 = 去掉连字符后的原始串前 4 位 + `-` + 其余
 - 握手哈希要包含服务器侧全部握手消息
 
 > 模板方法：pktmon 抓 42081 明文 ClientHello → 替换随机数即可重放。
-> 本方案附完整的 `raw_tls_game.py`（本地与 OpenSSL 服务器对测逐字节一致）。
+> 参考实现 `raw_tls_game.py` 已在本地与 OpenSSL 服务器对测逐字节一致，整理开源中。
 
 ### 2.2 路由与加密
 
@@ -298,8 +298,9 @@ EdgeOne 按 ClientHello 逐字节分流，所以要**原样抓取**机台的 Cli
 
 ## 6. 致谢与许可
 
-- 协议骨架源自开源项目 **AirFoundation/Ichino**（MIT）——签名盐、字段名、传输思路
+- 协议骨架源自开源项目 **[WinDolls/Ichino](https://github.com/WinDolls/Ichino)**（MIT，原 AirFoundation/Ichino，已迁移）——签名盐、字段名、传输思路
 - 水鱼生态：DivingFish 查分器 + maimai-py 的 update_records 格式
 - 本文档与其派生实现建议以 MIT 发布，注明上述来源
+- 我们的 1.55 服务器实测勘误（8 点）已以 [PR #1](https://github.com/WinDolls/Ichino/pull/1) 回馈 Ichino，全文见本仓库 `SUPPLEMENT_FOR_ICHINO.md`
 
 > 注：接口为未公开能力，仅作技术研究与存档用途；实际接入前自行评估风险。
